@@ -14,13 +14,13 @@ from judge.timezone import from_database_time
 from judge.utils.timedelta import nice_repr
 
 
-@register_contest_format('atcoder')
-class AtCoderContestFormat(DefaultContestFormat):
-    name = gettext_lazy('AtCoder')
-    config_defaults = {'penalty': 5}
+@register_contest_format('icpc')
+class ICPCContestFormat(DefaultContestFormat):
+    name = gettext_lazy('ICPC')
+    config_defaults = {'penalty': 20}
     config_validators = {'penalty': lambda x: x >= 0}
     '''
-        penalty: Number of penalty minutes each incorrect submission adds. Defaults to 5.
+        penalty: Number of penalty minutes each incorrect submission adds. Defaults to 20.
     '''
 
     @classmethod
@@ -29,7 +29,7 @@ class AtCoderContestFormat(DefaultContestFormat):
             return
 
         if not isinstance(config, dict):
-            raise ValidationError('AtCoder-styled contest expects no config or dict as config')
+            raise ValidationError('ICPC-styled contest expects no config or dict as config')
 
         for key, value in config.items():
             if key not in cls.config_defaults:
@@ -46,6 +46,7 @@ class AtCoderContestFormat(DefaultContestFormat):
 
     def update_participation(self, participation):
         cumtime = 0
+        last = 0
         penalty = 0
         points = 0
         format_data = {}
@@ -84,14 +85,15 @@ class AtCoderContestFormat(DefaultContestFormat):
                     prev = 0
 
                 if score:
-                    cumtime = max(cumtime, dt)
+                    cumtime += dt
+                    last = max(last, dt)
 
                 format_data[str(prob)] = {'time': dt, 'points': score, 'penalty': prev}
                 points += score
 
         participation.cumtime = cumtime + penalty
         participation.score = points
-        participation.tiebreaker = 0
+        participation.tiebreaker = -last  # field is sorted from greatest to least
         participation.format_data = format_data
         participation.save()
 
