@@ -12,3 +12,13 @@ resources/ranks.css
 resources/table.css
 resources/martor-description.css
 sass_processed
+
+
+<desired bridge log path>
+judge/config.yml
+*/**/migrations/
+node_modules/
+package-lock.json
+uwsgi.ini
+websocket/config.js
+
