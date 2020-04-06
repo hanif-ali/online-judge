@@ -10,7 +10,11 @@ from django.urls import Resolver404, resolve, reverse
 from django.utils.encoding import force_bytes
 from django.utils.http import urlquote
 from requests.exceptions import HTTPError
+from judge.models import Profile, Language
+from django.contrib.auth.models import User
 
+admin_change_re = re.compile(r"/admin/auth/user/(\d+)/change/")
+admin_change_default_lang = lang = Language.get_python3()
 
 class ShortCircuitMiddleware:
     def __init__(self, get_response):
@@ -110,3 +114,25 @@ class APIMiddleware(object):
             response.status_code = 401
             return response
         return self.get_response(request)
+
+
+class ChangeFormMiddleware:
+
+    def __init__(self, get_response):
+        self.get_response = get_response
+
+    def __call__(self, request):
+        path_match = admin_change_re.match(request.path)
+        if path_match:
+            try:
+                user_id = int(path_match.group(1))
+                user_obj = User.objects.get(id=user_id)
+                if user_obj:
+                    user_profile = Profile.objects.filter(user=user_obj).first()
+                    if user_profile is None:
+                        Profile(user=user_obj, language=admin_change_default_lang).save()
+            except: pass
+
+
+        response = self.get_response(request)
+        return response

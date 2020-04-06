@@ -221,6 +221,7 @@ class ProblemAdmin(NoBatchDeleteMixin, VersionAdmin):
 
     def save_model(self, request, obj, form, change):
         super(ProblemAdmin, self).save_model(request, obj, form, change)
+        return # hacky fix
         if form.changed_data and any(f in form.changed_data for f in ('is_public', 'points', 'partial')):
             self._rescore(request, obj.id)
 
