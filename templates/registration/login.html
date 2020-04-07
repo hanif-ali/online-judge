@@ -10,6 +10,7 @@
 	    </div>
 	<div class="main">
 	    <div id="login-panel">
+		    {% block login_panel%}
 		    <div class="login-panel-header">
 			    Log In
 		    </div>
@@ -38,6 +39,7 @@
 		    </div>
 		    <input type="hidden" name="next" value="{{ next }}">
 		</form>
+		{% endblock %}
 	    </div>
 	</div>
 	    <div class="footer">
