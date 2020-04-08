@@ -1,5 +1,5 @@
-<div id="comments" class="comment-area">
-    <h2><i style="padding-right: 0.3em" class="fa fa-comments"></i>{{ _('Comments') }}</h2>
+<div id="comments" class="comment-area panel">
+	<h4>{{ _('Comments') }}</h4><br>
     {% if has_comments %}
         <ul class="comments top-level-comments new-comments">
             {% set logged_in = request.user.is_authenticated %}
@@ -121,11 +121,7 @@
     {% endif %}
 
     {% if request.user.is_authenticated and comment_form and not comment_lock %}
-        <div class="form-area comment-submit">
-            {% block comment_submit_title %}
-                <h3>{{ _('New comment') }}</h3>
-                <hr>
-            {% endblock %}
+        <div class="form-area">
             {% if is_new_user %}
                 <div style="margin-bottom: 0" class="alert alert-info">
                     {{ _('You need to have solved at least one problem before your voice can be heard.') }}
@@ -140,12 +136,12 @@
                             {% if comment_form.body.errors %}{{ _('Invalid comment body.') }}{% endif %}
                         </div>
                     {% endif %}
-                    {{ comment_form.parent }}
-                    <div class="comment-post-wrapper">
-                        <div id="comment-form-body">{{ comment_form.body }}</div>
-                    </div>
-                    <hr>
-                    <input style="float:right" type="submit" value="{{ _('Post!') }}" class="button">
+		    <div class="form-input comment-input">
+			    <textarea style="width: 100%" rows="4" name="body" placeholder="Enter your comment"></textarea><br>
+		    </div>
+		    <div class="form-submit">
+			    <input type="submit" value="{{ _('Post!') }}" class="button">
+		    </div>
                 </form>
             {% endif %}
         </div>

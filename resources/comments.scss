@@ -16,7 +16,9 @@ a {
 }
 
 .comment-area {
-    margin-right: 30px;
+    margin-top: 120px;
+    padding: 30px 30px;
+    margin-bottom: 10px;
 
     h2 {
         margin-bottom: 20px;
@@ -70,11 +72,11 @@ a {
 }
 
 .comments.top-level-comments {
-    margin-right: -26px;
 }
 
 .comment-submit {
     width: 100%;
+    box-sizing: border-box;
 }
 
 .comment-post-wrapper {

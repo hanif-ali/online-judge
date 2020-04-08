@@ -85,11 +85,10 @@ th {
 }
 
 .form-area {
+    box-sizing: border-box;
     display: inline-block;
-    background: $background_light_gray;
-    padding: 5px 10px 10px 15px;
-    border-radius: $widget_border_radius;
-    border: 1px solid $border_gray;
+    padding: 5px 15px 10px 15px;
+    width: 100%;
 }
 
 div.info-float {
@@ -98,7 +97,6 @@ div.info-float {
 }
 
 footer {
-    color: gray;
     display: block;
     width: 100%;
     position: absolute;
@@ -196,7 +194,7 @@ header {
             padding-top: 8px;
             display: block;
             white-space: nowrap;
-	    color: #666;
+	    color: #222;
 
             & > img {
                 vertical-align: middle;
@@ -367,7 +365,7 @@ hr {
 }
 
 #content {
-    margin: 52px auto auto;
+    margin: 100px auto auto;
 
     // Header
     width: 90%;
@@ -383,8 +381,7 @@ hr {
 footer {
     text-align: center;
     height: 40px;
-    border-top: 1px solid $border_gray;
-    background: #ededed;
+    background: $foreground_primary;
 }
 
 html {
@@ -700,20 +697,88 @@ math {
 #user-links{
 	margin-right: 50px;
 }
+#user-links a:hover{
+	background: $background-secondary;
+}
 
 .user-hello{
 	line-height: 40px;
 }
 
 .user-hello i{
-	font-size:40px;
+	font-size:30px;
 	color: $foreground-blue; 
 	vertical-align:middle;
 	margin-right: 10px
 }
 
 .user-hello span{
-	font-size: 20px;
+	font-size: 16px;
 	vertical-align: middle;
 	color: black;
+}
+
+.info-float {
+	box-shadow: 0px 0px 8px 1px $shadow_color;
+	padding: 30px 15px !important;
+	border-radius: 8px;
+
+	a{
+		vertical-align: middle;
+	}
+	.button{
+		margin-bottom: 20px;
+		display: block !important;
+	}
+}
+
+.problem-sidebar-link{
+	margin-bottom: 5px;
+	margin-left: 10px;
+	a{
+		color: $foreground-blue;
+	}
+}
+.problem-sidebar-bold{
+	margin-top: 30px;
+	margin-bottom: 5px;
+	a{
+		color: black;
+		font-weight: 600;
+	}
+}
+
+.title-panel{
+	padding: 20px 30px;
+	font-weight: 600;
+
+	.check{
+		vertical-align: middle;
+		color: $foreground_primary;
+		font-size: 25px;
+		margin-right: 20px;
+	}
+	.title-text{
+		vertical-align: middle;
+		font-size: 16px;
+	}
+}
+.description-text{
+	padding-left: 20px;
+	color: $text_secondary;
+	*{
+		color: $text_secondary !important;
+	}
+
+}
+
+
+#content-right{
+	padding-top: 0px !important
+}
+
+.comment-input{
+	width: 100%;
+	margin-top: 10px;
+	margin-bottom: 10px;
 }

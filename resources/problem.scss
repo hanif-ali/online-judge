@@ -1,3 +1,5 @@
+@import "vars";
+
 #problem-table {
     td {
         &.category {
@@ -47,6 +49,8 @@
 }
 
 #filter-form {
+	font-size: 11px;
+	font-weight: 500;
     vertical-align: top;
     margin-bottom: 0.5em;
     margin-top: 0.75em;
@@ -92,8 +96,13 @@
 }
 
 label[for="category"], label[for="type"] {
-    padding-bottom: 0.25em;
+    padding-bottom: 0.45em;
     display: block;
+    margin-top: 20px;
+    font-weight: 600;
+    i{
+	    font-style: normal !important;
+    }
 }
 
 #category {
@@ -139,16 +148,19 @@ ul.problem-list {
     margin-left: 1.5em;
 }
 
+.solved{
+	color: $foreground_primary !important;
+}
 .solved-problem-color {
-    color: #44AD41;
+    color: $foreground_primary;
 }
 
 .unsolved-problem-color {
-    color: #DE2121;
+    color: gray;
 }
 
 .attempted-problem-color {
-    color: orange;
+    color: red;
 }
 
 .submissions-left {
@@ -256,8 +268,8 @@ ul.problem-list {
 }
 
 #filter-form .form-label {
-    margin-top: 0.5em;
-    font-style: italic;
+    margin-top: 20px;
+    font-weight: 600;
 }
 
 #point-slider {

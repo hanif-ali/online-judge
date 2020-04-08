@@ -4,6 +4,8 @@
 *.sqlite3
 *.py[co]
 *.mo
+*.swp
+*.swa
 *~
 dmoj/local_settings.py
 resources/style.css

@@ -159,14 +159,6 @@
     {% endif %}
 {% endblock %}
 
-{% block title_ruler %}{% endblock %}
-
-{% block title_row %}
-    {% set tab = 'list' %}
-    {% set title = 'Problems' %}
-    {% include "problem/problem-list-tabs.html" %}
-{% endblock %}
-
 {% block body %}
     {% if page_obj.num_pages > 1 %}
         <div style="margin-bottom: 7px; margin-top: 11px;">
@@ -201,7 +193,7 @@
                 <tr>
                     {% if request.in_contest %}
                         {% if request.user.is_authenticated %}
-                            <th class="solved"><i class="fa fa-check"></i></th>
+                            <th class="solved"><i class="fa fa-circle"></i></th>
                         {% endif %}
                         <th class="problem">{{ _('Problem') }}</th>
                         <th class="category">{{ _('Category') }}</th>
@@ -248,9 +240,9 @@
                                 <td solved="1">
                                     <a href="{{ url('user_submissions', problem.code, request.user.username) }}">
                                         {% if problem.is_public or request.in_contest %}
-                                            <i class="solved-problem-color fa fa-check-circle"></i>
+                                            <i class="solved-problem-color fa fa-circle"></i>
                                         {% else %}
-                                            <i class="solved-problem-color fa fa-lock"></i>
+                                            <i class="solved-problem-color fa fa-circle"></i>
                                         {% endif %}
                                     </a>
                                 </td>
@@ -258,16 +250,16 @@
                                 <td solved="0">
                                     <a href="{{ url('user_submissions', problem.code, request.user.username) }}">
                                         {% if problem.is_public or request.in_contest %}
-                                            <i class="attempted-problem-color fa fa-minus-circle"></i>
+                                            <i class="attempted-problem-color fa fa-circle"></i>
                                         {% else %}
-                                            <i class="attempted-problem-color fa fa-lock"></i>
+                                            <i class="attempted-problem-color fa fa-circle"></i>
                                         {% endif %}
                                     </a>
                                 </td>
                             {% else %}
                                 <td solved="-1">
                                     {% if problem.is_public or request.in_contest %}
-                                        <i class="unsolved-problem-color fa fa-minus-circle"></i>
+                                        <i class="unsolved-problem-color fa fa-circle"></i>
                                     {% else %}
                                         <i class="unsolved-problem-color fa fa-lock"></i>
                                     {% endif %}
