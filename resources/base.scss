@@ -35,6 +35,7 @@ img {
     // height: auto
 }
 
+
 .full {
     width: 100%;
 }
@@ -111,8 +112,6 @@ body {
     max-width: 107em;
     font-size: $base_font_size;
     line-height: 1.231;
-    background: $background_light_gray;
-    font-family: "Segoe UI", "Lucida Grande", Arial, sans-serif;
     color: #000;
     height: 100%;
 }
@@ -180,7 +179,7 @@ header {
     }
 
     a {
-        color: #FFF;
+        color: black;
     }
 
     li {
@@ -197,6 +196,7 @@ header {
             padding-top: 8px;
             display: block;
             white-space: nowrap;
+	    color: #666;
 
             & > img {
                 vertical-align: middle;
@@ -217,13 +217,10 @@ header {
     }
 }
 
-#nav-shadow {
-    height: 3px;
-    background: linear-gradient(rgba(0, 0, 0, 0.5), transparent);
-}
-
 #nav-container {
-    background: $widget_black;
+    background: $background_primary;
+    box-shadow: 0px 0px 5px 1px $shadow_color; 
+    padding-top: 10px;
 
     // opacity: 0.77
     // filter: alpha(opacity=77)
@@ -235,6 +232,7 @@ header {
     top: 0;
     left: 0;
     right: 0;
+    height: 60px;
 }
 
 nav {
@@ -285,14 +283,13 @@ nav {
                 }
 
                 &:hover {
-                    color: #FFF;
-                    background: rgba(255, 255, 255, 0.25);
-                    margin: 0;
+			background: $foreground-secondary;
+			color: #fff;
                 }
 
                 &.active {
-                    color: #FFF;
-                    background: $highlight_blue;
+			background: $foreground-primary;
+			color: #fff;
                 }
 
                 .nav-expand {
@@ -306,9 +303,9 @@ nav {
                 left: 5px;
                 display: none;
                 color: #fff;
-                background: $widget_black;
+                background: $background_primary;
                 margin: 0 !important;
-                box-shadow: 2px 2px 4px rgba(0, 0, 0, 0.4);
+                box-shadow: 0px 0px 4px $shadow_color;
 
                 li {
                     &:first-child {
@@ -575,7 +572,7 @@ math {
         display: block;
         line-height: 26px;
         font-size: 2em;
-        color: #FFF;
+        color: black;
         padding: 0 0.25em;
         margin: 4px 0.25em;
         white-space: nowrap;
@@ -595,14 +592,15 @@ math {
         border-left: 4px solid $highlight_blue;
         position: fixed;
         top: 36px;
-        background: $widget_black;
+        background: $background-primary;
         bottom: 0;
         width: 8em;
         left: 0;
-        box-shadow: none;
+        box-shadow: 0px 0px 8px 1px $shadow_color;
 
         li {
             display: block;
+
 
             a {
                 display: block;
@@ -671,4 +669,51 @@ math {
             }
         }
     }
+}
+
+
+// Newly Added
+
+.site-logo{
+	height: 50px;
+	margin-left: 10px;
+}
+
+.nav-link{
+	background: $background-primary;
+	height: 11px;
+	padding-right:14px;
+	padding-left: 14px;
+	line-height: 11px;
+	margin-right: 15px;
+	border-radius: 8px;
+	color: black;
+	font-weight: 500;
+	font-weight: 600;
+}
+.nav-link.active{
+}
+
+.home-nav-element{
+	margin-right: 30px;
+}
+#user-links{
+	margin-right: 50px;
+}
+
+.user-hello{
+	line-height: 40px;
+}
+
+.user-hello i{
+	font-size:40px;
+	color: $foreground-blue; 
+	vertical-align:middle;
+	margin-right: 10px
+}
+
+.user-hello span{
+	font-size: 20px;
+	vertical-align: middle;
+	color: black;
 }

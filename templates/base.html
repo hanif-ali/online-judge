@@ -2,6 +2,8 @@
 <html lang="{{ LANGUAGE_CODE }}">
 <head>
     <title>{% block title %}{{ title }} - {{ SITE_LONG_NAME }}{% endblock %}</title>
+    <link href='https://fonts.googleapis.com/css?family=Montserrat:100,200,300,400,500,600,700,800,900' rel='stylesheet'>
+    <link rel="stylesheet" href="{{static('common.css')}}">
     <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
     {% if misc_config.meta_keywords %}
         <meta name="keywords" content="{{ misc_config.meta_keywords }}">
@@ -185,12 +187,10 @@
     <div id="nav-container">
         <a id="navicon" href="javascript:void(0)"><i class="fa fa-bars"></i></a>
         <ul id="nav-list">
-            <li class="home-nav-element"><a href="{{ url('home') }}">{% include "site-logo-fragment.html" %}</a></li>
-            <li class="home-nav-element"><span class="nav-divider"></span></li>
-            <li class="home-menu-item"><a href="{{ url('home') }}" class="nav-home">{{ _('Home') }}</a></li>
+		<li class="home-nav-element"><a href="{{ url('home') }}"><img class="site-logo" src="{{static('logo.png')}}"</a></li>
             {% for node in mptt_tree(nav_bar) recursive %}
                 <li>
-                    <a href="{{ node.path }}" class="nav-{{ node.key }}{% if node.key in nav_tab %} active{% endif %}">
+                    <a href="{{ node.path }}" class="nav-{{ node.key }}{% if node.key in nav_tab %} active{% endif %} nav-link">
                         {{ user_trans(node.label) }}
                         {% if not node.is_leaf_node %}
                             <div href="javascript:void(0)" class="nav-expand">></div>
@@ -203,18 +203,18 @@
             {% endfor %}
         </ul>
 
-        <span id="user-links">
+        <span id="user-links"> 
             {% if request.user.is_authenticated %}
                 <ul>
                     <li>
                         <a href="{{ url('user_page') }}">
-                            <span>
-                                <img src="{{ gravatar(request.user, 32) }}" height="24" width="24">{# -#}
-                                <span>
-                                    {%- trans username=request.user.username -%}
-                                        Hello, <b>{{ username }}</b>.
-                                    {%- endtrans %}
-                                </span>
+                            <span class="user-hello">
+				    <i class="fa fa-circle"></i>
+					<span style="color: #666">
+					    {%- trans username=request.user.username -%}
+						Hello, <b>{{ username }}</b>.
+					    {%- endtrans %}
+					</span>
                             </span>
                         </a>
                         <ul style="width: 150px">
@@ -228,7 +228,7 @@
                                 <li>
                                     <form action="{{ url('auth_logout') }}" method="POST">
                                         {% csrf_token %}
-                                        <button type="submit">{{ _('Log out') }}</button>
+                                        <button type="submit" style="color:black !important">{{ _('Log out') }}</button>
                                     </form>
                                 </li>
                             {% endif %}
@@ -244,7 +244,6 @@
             {% endif %}
         </span>
     </div>
-    <div id="nav-shadow"></div>
 </nav>
 {% if request.in_contest %}
     <div id="contest-info">

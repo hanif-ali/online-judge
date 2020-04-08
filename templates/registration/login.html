@@ -1,6 +1,7 @@
 <html>
 	<head>
 		<link rel="stylesheet" href="{{ static('login.css')}}">
+		<link rel="stylesheet" href="{{ static('common.css')}}">
 		<link href='https://fonts.googleapis.com/css?family=Montserrat:100,200,300,400,500,800' rel='stylesheet'>
 	</head>
 	<body>
@@ -9,9 +10,9 @@
 		    <img src="{{static('logo.png')}}" alt="Logo">
 	    </div>
 	<div class="main">
-	    <div id="login-panel">
+	    <div class="panel">
 		    {% block login_panel%}
-		    <div class="login-panel-header">
+		    <div class="panel-header">
 			    Log In
 		    </div>
 		<form action="" method="post" class="form-area">
@@ -35,7 +36,7 @@
 		    </div>
 
 		    <div class="form-submit">
-			    <button type="submit">{{ _('Log In') }}</button>
+			    <button type="submit" class="form-button">{{ _('Log In') }}</button>
 		    </div>
 		    <input type="hidden" name="next" value="{{ next }}">
 		</form>
