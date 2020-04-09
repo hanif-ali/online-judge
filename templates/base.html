@@ -187,7 +187,7 @@
     <div id="nav-container">
         <a id="navicon" href="javascript:void(0)"><i class="fa fa-bars"></i></a>
         <ul id="nav-list">
-		<li class="home-nav-element"><a href="{{ url('home') }}"><img class="site-logo" src="{{static('logo.png')}}"</a></li>
+		<li class="home-nav-element"><a href="#"><img class="site-logo" src="{{static('logo.png')}}"</a></li>
             {% for node in mptt_tree(nav_bar) recursive %}
                 <li>
                     <a href="{{ node.path }}" class="nav-{{ node.key }}{% if node.key in nav_tab %} active{% endif %} nav-link">

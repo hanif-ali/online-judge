@@ -172,7 +172,7 @@ class ContestAdmin(NoBatchDeleteMixin, VersionAdmin):
         # We need this flag because `save_related` deals with the inlines, but does not know if we have already rescored
         # self._rescored = False
 
-        return #hacky_fix
+        return 0#hacky_fix
         if form.changed_data and any(f in form.changed_data for f in ('format_config', 'format_name')):
             self._rescore(obj.key)
             # self._rescored = True

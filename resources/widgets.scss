@@ -40,7 +40,7 @@
     font-size: $base_font_size;
 
     &:hover {
-	background: #259e66;
+	background: $foreground_secondary;
 	cursor: pointer;
 	color: white;
     }
@@ -56,12 +56,12 @@
 }
 
 button:hover, button:hover, input[type=submit]:hover {
-    background: #265a88;
+    background: $foreground_secondary;
 }
 
 .button:active, button:active, input[type=submit]:hover {
     border-color: #245580;
-    background: #265a88;
+    background: $foreground_secondary;
 }
 
 .inline-button {
