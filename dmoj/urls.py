@@ -104,7 +104,8 @@ def paged_list_view(view, name):
 
 
 urlpatterns = [
-    url(r'^$', blog.PostList.as_view(template_name='home.html', title=_('Home')), kwargs={'page': 1}, name='home'),
+    url(r'^$', RedirectView.as_view(url="/accounts/login")),
+    url(r'^home/$', blog.PostList.as_view(template_name='home.html', title=_('Home')), kwargs={'page': 1}, name='home'),
     url(r'^500/$', exception),
     url(r'^admin/', admin.site.urls),
     url(r'^i18n/', include('django.conf.urls.i18n')),
@@ -397,3 +398,8 @@ if 'newsletter' in settings.INSTALLED_APPS:
     urlpatterns.append(url(r'^newsletter/', include('newsletter.urls')))
 if 'impersonate' in settings.INSTALLED_APPS:
     urlpatterns.append(url(r'^impersonate/', include('impersonate.urls')))
+
+import debug_toolbar
+urlpatterns += [
+        url(r'^__debug__/', include(debug_toolbar.urls)),
+]
