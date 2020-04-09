@@ -159,11 +159,6 @@
 						{% endif %}
 						{{ time_left(contest) }}
 					    {% endif %}
-					</div>
-					<div class="contest-user-count">
-						{{ user_count(contest, request.user) }}
-					</div>
-						    {{ contest_join(contest, request) }}
 				</div>
 			    {% endwith %}
 			{% endfor %}
@@ -172,13 +167,11 @@
         {% endif %}
 
         {% if current_contests %}
-            <h4>{{ _('Ongoing Contests') }}</h4>
-                <tbody>
+            <div class="panel title-panel">{{ _('Ongoing Contests') }}</div>
+	    	<div class="contest-area">
                 {% for contest in current_contests %}
-                    <tr>
-                        <td>
-                            <div class="contest-block">
-                                {{ contest_head(contest) }}
+                            <div class="contest-block panel">
+				    <div class="contest-header">{{ contest_head(contest) }}</div>
                                 {% if contest.start_time %}
                                     <br>
                                     {% if contest.time_before_end %}
@@ -187,16 +180,8 @@
                                     {{ time_left(contest) }}
                                 {% endif %}
                             </div>
-                        </td>
-                        <td>
-                            {{ user_count(contest, request.user) }}
-                        </td>
-                        {{ contest_join(contest, request) }}
-                    </tr>
                 {% endfor %}
-                </tbody>
-            </table>
-            <br>
+		</div>
         {% endif %}
 
 	<div class="panel title-panel">{{ _('Upcoming Contests') }}</div>

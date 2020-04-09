@@ -788,11 +788,12 @@ math {
 .contest-area{
 	text-align: center !important;
 	margin-top: 40px;
+	margin-bottom: 40px;
 	display: flex;
 	padding: 20px;
 	flex-direction: row;
 	flex-wrap: wrap;
-	justify-content: space-around;
+	justify-content: center;
 
 	.contest-block{
 		margin: 20px;
