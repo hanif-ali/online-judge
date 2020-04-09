@@ -170,16 +170,18 @@ class ContestAdmin(NoBatchDeleteMixin, VersionAdmin):
 
         super().save_model(request, obj, form, change)
         # We need this flag because `save_related` deals with the inlines, but does not know if we have already rescored
-        self._rescored = False
+        # self._rescored = False
+
         return #hacky_fix
         if form.changed_data and any(f in form.changed_data for f in ('format_config', 'format_name')):
             self._rescore(obj.key)
-            self._rescored = True
+            # self._rescored = True
 
     def save_related(self, request, form, formsets, change):
         super().save_related(request, form, formsets, change)
         # Only rescored if we did not already do so in `save_model`
-        if not self._rescored and any(formset.has_changed() for formset in formsets):
+        # if not self._rescored and any(formset.has_changed() for formset in formsets):
+        if not any(formset.has_changed() for formset in formsets):
             self._rescore(form.cleaned_data['key'])
 
     def has_change_permission(self, request, obj=None):
