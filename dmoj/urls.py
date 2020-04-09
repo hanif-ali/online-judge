@@ -399,7 +399,3 @@ if 'newsletter' in settings.INSTALLED_APPS:
 if 'impersonate' in settings.INSTALLED_APPS:
     urlpatterns.append(url(r'^impersonate/', include('impersonate.urls')))
 
-import debug_toolbar
-urlpatterns += [
-        url(r'^__debug__/', include(debug_toolbar.urls)),
-]
