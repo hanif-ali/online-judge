@@ -91,7 +91,6 @@
 }
 
 #banner {
-    border-bottom: 1px solid rgba(0, 0, 0, 0.2);
     padding-bottom: 1em;
 
     a.date {
@@ -212,4 +211,9 @@ form.contest-join-pseudotab {
     }
 
     padding: 0 5px;
+}
+
+
+#contest-problems{
+	margin-top: 50px;
 }
