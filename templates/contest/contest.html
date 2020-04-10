@@ -2,11 +2,6 @@
 
 {% block title_ruler %}{% endblock %}
 
-{% block title_row %}
-    {% set tab = 'detail' %}
-    {% set title = contest.name %}
-    {% include "contest/contest-tabs.html" %}
-{% endblock %}
 
 {% block content_js_media %}
     <script type="text/javascript">
@@ -25,6 +20,11 @@
 {% endblock %}
 
 {% block body %}
+{% block title_row %}
+    {% set tab = 'detail' %}
+    {% set title = contest.name %}
+    {% include "contest/contest-tabs.html" %}
+{% endblock %}
     <div id="banner">
         <a href="https://www.timeanddate.com/worldclock/fixedtime.html?msg={{ contest.name|urlquote('') }}&amp;iso=
                 {{- contest.start_time|utc|date('Y-m-d\TH:i:s') }}" class="date">
