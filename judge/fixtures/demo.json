@@ -164,7 +164,7 @@
     },
     {
         "fields": {
-            "domain": "localhost:8081",
+            "domain": "judge.prepfortech.in/admin",
             "name": "DMOJ: Modern Online Judge"
         },
         "model": "sites.site",

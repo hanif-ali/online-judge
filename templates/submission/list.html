@@ -355,7 +355,7 @@
                 <a href="javascript:void(0)">{{ _('You were disconnected. Refresh to show latest updates.') }}</a>
             </div>
 
-            <div id="submissions-table">
+            <div id="submissions-table" class="panel">
                 {% set profile_id = request.profile.id if request.user.is_authenticated else 0 %}
                 {% for submission in submissions %}
                     <div class="submission-row" id="{{ submission.id }}">

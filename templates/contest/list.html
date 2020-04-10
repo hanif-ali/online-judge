@@ -59,45 +59,45 @@
         <a href="{{ url('contest_view', contest.key) }}" class="contest-list-title">
             {{- contest.name -}}
         </a>
-        <span class="contest-tags">
+        <div class="contest-tags unselectable" style="margin-top: 10px">
             {% if not contest.is_visible %}
-                <span style="background-color: #000000; color: #ffffff" class="contest-tag">
+                <span style="background-color: #35b479; color: #ffffff" class="contest-tag">
                     <i class="fa fa-eye-slash"></i> {{ _('hidden') }}
                 </span>
             {% endif %}
             {% if contest.is_organization_private %}
                 {% for org in contest.organizations.all() %}
-                    <span style="background-color: #cccccc" class="contest-tag">
+                    <span style="background-color: #35b479" class="contest-tag">
                         <a href="{{ org.get_absolute_url() }}" style="color: #000000">
                             <i class="fa fa-lock"></i> {{ org.name }}
                         </a>
                     </span>
                 {% endfor %}
             {% elif contest.is_private %}
-                <span style="background-color: #666666; color: #ffffff" class="contest-tag">
+                <span style="background-color: #35b479; color: #ffffff" class="contest-tag">
                     <i class="fa fa-lock"></i> {{ _('private') }}
                 </span>
             {% endif %}
             {% if contest.is_rated %}
-                <span style="background-color: #e54c14; color: #ffffff" class="contest-tag">
+                <span style="background-color: #35b479; color: #ffffff" class="contest-tag">
                     <i class="fa fa-bar-chart"></i> {{ _('rated') }}
                 </span>
             {% endif %}
             {% for tag in contest.tags.all() %}
-                <span style="background-color: {{ tag.color }}" class="contest-tag">
+                <span style="background-color: #35b479" class="contest-tag">
                     <a href="{{ url('contest_tag', tag.name) }}"
-                       style="color: {{ tag.text_color }}"
+                       style="color: white"
                        data-featherlight="{{ url('contest_tag_ajax', tag.name) }}">
                         {{- tag.name -}}
                     </a>
                 </span>
             {% endfor %}
-        </span>
+        </div>
     {% endspaceless %}
 {% endmacro %}
 
 {% macro time_left(contest) %}
-    <div class="time time-left">
+    <div class="time time-left unselectable">
         {% if contest.time_limit %}
             {{ contest.start_time|date(_("M j, Y, G:i")) }} -
             {{ contest.end_time|date(_("M j, Y, G:i")) }}
