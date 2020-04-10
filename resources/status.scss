@@ -1,5 +1,7 @@
+@import 'vars';
+
 .AB {
-    background-color: #CCC;
+    background-color: $foreground_primary;
     color: black;
 }
 

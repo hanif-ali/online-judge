@@ -1,3 +1,5 @@
+@import 'vars';
+
 .info-float {
     position: sticky;
     top: 60px;
@@ -6,6 +8,7 @@
 
 #submissions-table {
     background: rgba(0, 0, 0, .01);
+    box-shadow: 0px 0px 8px 1px $shadow_color;
 }
 
 .submission-row {
@@ -322,4 +325,10 @@ label[for="language"], label[for="status"] {
     .submission-date {
         color: gray;
     }
+}
+
+.blue-title{
+	color: $foreground_blue;
+	font-weight: 600;
+	margin-bottom: 5px;
 }
