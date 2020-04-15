@@ -1,12 +1,12 @@
-html,body {
-  height:100%;
-  width:100%;
-  margin:0;
+html, body {
+  height: 100%;
+  width: 100%;
+  margin: 0;
 }
 
 body {
-	background: #fcfcfc;
-	font-family: Montserrat;
+  background: #fcfcfc;
+  font-family: Montserrat;
 }
 
 .panel {
@@ -14,62 +14,65 @@ body {
   border-radius: 5px;
 }
 
-.panel-header{
-	background: #f3f7f7; 
-	border-radius: 5px; 
-	padding-top: 7px;
-	height: 40px;
-	text-align: center;
-	line-height: 40px;
-	font-size: 14px;
-	font-weight: 500;
+.panel-header {
+  background: #f3f7f7;
+  border-radius: 5px;
+  padding-top: 7px;
+  height: 40px;
+  text-align: center;
+  line-height: 40px;
+  font-size: 14px;
+  font-weight: 500;
 }
 
-.form-input{
-	margin-bottom: 7px;
+.form-input {
+  margin-bottom: 7px;
 }
 
-
-.form-input input{
-	border-radius: 2px;
-	background: #f3f7f7;
-	border-style: none;
-	padding-left: 30px;
-	outline: none;
+.form-input input {
+  border-radius: 2px;
+  background: #f3f7f7;
+  border-style: none;
+  padding-left: 30px;
+  outline: none;
 }
 
-.form-input input:focus{
-	border: 1px solid #c2c3c3;
+.form-input input:focus {
+  border: 1px solid #c2c3c3;
 }
 
-.form-input textarea{
-	border-radius: 2px;
-	background: #f3f7f7;
-	border-style: none;
-	padding-left: 20px;
-	outline: none;
-}
-.form-input textarea:focus{
-	border: 1px solid #c2c3c3;
+.form-input textarea {
+  border-radius: 2px;
+  background: #f3f7f7;
+  border-style: none;
+  padding-left: 20px;
+  outline: none;
 }
 
-
-.form-button{
-	border-style: none;
-	padding: 10px 20px;
-	border-radius: 3px;
-	outline: none;
-	background: #35b479;
-	transition: all 0.2s;
-	color: white;
+.form-input textarea:focus {
+  border: 1px solid #c2c3c3;
 }
 
-.form-button:hover{
-	background: #259e66;
-	cursor: pointer;
+.form-button {
+  border-style: none;
+  padding: 10px 20px;
+  border-radius: 3px;
+  outline: none;
+  background: #35b479;
+  transition: all 0.2s;
+  color: white;
 }
 
-.footer{
-	height: 40px;
-	background:  #35b479;
+.form-button:hover {
+  background: #259e66;
+  cursor: pointer;
 }
+
+.footer {
+  height: 40px;
+  background: #35b479;
+}
+
+/*# sourceMappingURL=common.css.map */
+
+/*# sourceMappingURL=common.css.map */
