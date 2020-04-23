@@ -55,6 +55,9 @@
 {% endblock %}
 
 {% block body %}
+<script>
+	setTimeout(function(){window.location.reload()}, 2000);
+</script>
     <br>
     <div><a href="{{ url('submission_source', submission.id) }}">{{ _('View source') }}</a></div>
     {% if request.user == submission.user.user or perms.judge.resubmit_other %}
